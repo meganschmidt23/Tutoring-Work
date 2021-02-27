@@ -116,7 +116,7 @@ void printYearCalender(int year, int startingDay){
 		}
 		else{
 			int daysInFeb = 28;
-			if (checkLeapYear){
+			if (checkLeapYear(year)){
 				daysInFeb++;
 			}
 			firstDayOfMonth = printMonthCalender(daysInFeb, firstDayOfMonth);
