@@ -18,26 +18,29 @@ int main(){
 	}
 	cout << endl;
 	//Finding amicable numbers
-	cout << "The amicable numbers between 2 and "<< M<< " are "<<endl;
-	int count;
+	cout << "The amicable numbers between 2 and "<< M << " are "<<endl;
 	for(int i = 2; i <= M; i++){
-	    int sum1 = 1;
+		//All variables have 1 as a divisor
+	    outCountDivs =1;
+	    outSumDivs = 1;
 	    //Finding the sum of divisors of i
-		analyzeDividors(i, count, sum1);
-		if (sum1 > i && sum1 < M){
-		    int sum2 = 1;
-		    //Finding sum of divisors of sum1
-		    analyzeDividors(sum1,count, sum2);
-		    if(sum2 == i){
-		        cout << i << " " <<sum1 <<endl;
-		    }
+		analyzeDividors(i, outCountDivs, outSumDivs);
+		//Store this value. We want to check to see if this will be amicable for i
+		int check = outSumDivs;
+		//reset values
+		outCountDivs =1;
+	    outSumDivs = 1;
+	    //get sum of divisors of i's sum of div. We want this to equal i to be amicable
+		analyzeDividors(check, outCountDivs,outSumDivs);
+		if (i == outSumDivs){
+		        cout << i << " ";
 		}
 	}
 	cout << endl;
 	return 0;
 }
 
-void analyzeDividors(int num, int& outCountDivs, int& outSumDivs){;
+void analyzeDividors(int num, int& outCountDivs, int& outSumDivs){
 	for (int i = 2; i <= sqrt(num); i++){
 	    // We get a divisor
 		if (num%i == 0){
