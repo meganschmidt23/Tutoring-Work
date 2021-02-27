@@ -27,14 +27,16 @@ int main(){
 		analyzeDividors(i, outCountDivs, outSumDivs);
 		//Store this value. We want to check to see if this will be amicable for i
 		int check = outSumDivs;
-		//reset values
-		outCountDivs =1;
-	    outSumDivs = 1;
-	    //get sum of divisors of i's sum of div. We want this to equal i to be amicable
-		analyzeDividors(check, outCountDivs,outSumDivs);
-		if (i == outSumDivs){
-		        cout << i << " ";
+		if(i != check){
+			outCountDivs =1;
+	    	outSumDivs = 1;
+	    	//get sum of divisors of i's sum of div. We want this to equal i to be amicable
+			analyzeDividors(check, outCountDivs,outSumDivs);
+			if (i == outSumDivs){
+		        	cout << i << " ";
+			}
 		}
+		
 	}
 	cout << endl;
 	return 0;
